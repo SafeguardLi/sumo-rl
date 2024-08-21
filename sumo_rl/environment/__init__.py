@@ -1,7 +1,7 @@
 """SUMO Environment for Traffic Signal Control."""
 
 from gymnasium.envs.registration import register
-
+from .ParallelPettingZooEnv import ParallelPettingZooEnv
 
 register(
     id="sumo-rl-v0",

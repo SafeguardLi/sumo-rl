@@ -13,7 +13,8 @@ import ray
 import traci
 from ray import tune
 from ray.rllib.algorithms.ppo import PPOConfig
-from ray.rllib.env.wrappers.pettingzoo_env import ParallelPettingZooEnv
+# from ray.rllib.env.wrappers.pettingzoo_env import ParallelPettingZooEnv
+from sumo_rl.environment.ParallelPettingZooEnv import ParallelPettingZooEnv
 from ray.tune.registry import register_env
 
 import sumo_rl
@@ -28,9 +29,9 @@ if __name__ == "__main__":
         env_name,
         lambda _: ParallelPettingZooEnv(
             sumo_rl.parallel_env(
-                net_file="sumo_rl/nets/4x4-Lucas/4x4.net.xml",
-                route_file="sumo_rl/nets/4x4-Lucas/4x4c1c2c1c2.rou.xml",
-                out_csv_name="outputs/4x4grid/ppo",
+                net_file="../sumo_rl/nets/4x4-Lucas/4x4.net.xml",
+                route_file="../sumo_rl/nets/4x4-Lucas/4x4c1c2c1c2.rou.xml",
+                out_csv_name="../outputs/4x4grid/ppo",
                 use_gui=False,
                 num_seconds=80000,
             )
